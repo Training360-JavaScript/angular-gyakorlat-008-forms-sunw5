@@ -7,7 +7,9 @@
 
     </div>
   </div>
-
+  <button [routerLink]="['event/' + 0]" class="btn btn-success">
+    <i class="fa fa-pencil"></i>
+  </button>
   <table class="table">
     <thead>
       <tr>
@@ -27,6 +29,9 @@
         <td>
           <div class="btn-group">
             <button [routerLink]="['event/' + event.id]" class="btn btn-info">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button (click)="onDelete(event.id)" class="btn btn-danger">
               <i class="fa fa-pencil"></i>
             </button>
 

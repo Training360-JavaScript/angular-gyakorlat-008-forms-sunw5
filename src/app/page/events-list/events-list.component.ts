@@ -20,4 +20,14 @@ export class EventsListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  onDelete(id: Number): void {
+    this.eventService.remove(id).subscribe({
+      next: (event) => {
+        console.log('event removed:', event);
+        this.router.navigate(['/']);
+      },
+      error: (err) => console.error(err),
+    });
+  }
+
 }

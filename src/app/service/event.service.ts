@@ -29,4 +29,28 @@ export class EventService {
     );
   }
 
+  create(event: Event): Observable<Event> {
+    return this.http.post<Event>(
+      // `${this.eventsUrl}/${event.id}`, /* this works if got unique id */
+      `${this.eventsUrl}`,
+      event
+    )
+  }
+
+  remove(id: Number): Observable<Event> {
+    return this.http.delete<Event>(
+      `${this.eventsUrl}/${id}`
+    )
+  }
+
+  // createId():number {
+  //   this.getAll().subscribe(data => {
+  //     let id: number = data.sort((a, b) => a.id - b.id)[data.length - 1].id;
+  //     console.log('lastId:', id);
+  //     return id + 1;
+  //   })
+  // }
+
+
+
 }
